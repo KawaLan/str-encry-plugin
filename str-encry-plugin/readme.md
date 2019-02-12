@@ -1,7 +1,3 @@
-# str-encry-plugin
-字符串加密插件
-
-
 ### 此模块是字符串加密模块
 <br/>
 
@@ -38,4 +34,3 @@ stringEncry {
     decryptMethod = "xor_go"
 }
 ```
-
