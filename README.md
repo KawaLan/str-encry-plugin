@@ -39,3 +39,56 @@ stringEncry {
 }
 ```
 
+上面用到的加密都是简简单单的异或加密
+JNI版：
+```
+int key[] = {1, 2, 6, 4, 5};//加密字符密钥
+
+//异或加密
+void xor_go(char *pstr, int *pkey) {
+    int len = strlen(pstr);//获取长度
+    for (int i = 0; i < len; i++) {
+        *(pstr + i) = ((*(pstr + i)) ^ (pkey[i % 5]));
+    }
+}
+
+/**
+ * 执行异或加密
+ */
+JNIEXPORT jstring JNICALL str_go
+        (JNIEnv *env, jclass, jstring str) {
+    const char *buf_name = env->GetStringUTFChars(str, 0);
+    if (buf_name == NULL) {
+        return NULL;
+    }
+    int len = strlen(buf_name);
+    char value[len];
+    strcpy(value, buf_name);
+    //2. 释放内存
+    env->ReleaseStringUTFChars(str, buf_name);
+    char *p = value;
+    xor_go(value, key);
+    return env->NewStringUTF(p);
+}
+
+```
+
+java版：
+```
+    public static byte[] keyBytes = {1, 2, 3, 4, 5};
+
+    /**
+     * 异或加密解密
+     *
+     * @param enc
+     * @return
+     */
+    public static String xor_go(String enc) {
+        byte[] b = enc.getBytes(Charset.forName("UTF-8"));
+        for (int i = 0; i < b.length; i++) {
+            b[i] = (byte) (b[i] ^ (keyBytes[i % keyBytes.length]));
+        }
+        return new String(b);
+    }
+```
+如需自定义加密方法，请修改NativeStringGuard这个文件
