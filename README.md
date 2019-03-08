@@ -23,7 +23,7 @@ apply plugin: 'StringEncry'
 
 stringEncry {
     //加密密钥，默认[1,2,3,4,5]
-    decryptKey = [1,2,6,4,5]
+    decryptKey = [1,2,3,4,5]
     //需要加密指定目录
     stringEncryDirList = [
             "com/kawa/strencrydemo/url"
@@ -42,7 +42,7 @@ stringEncry {
 上面用到的加密都是简简单单的异或加密
 JNI版：
 ```
-int key[] = {1, 2, 6, 4, 5};//加密字符密钥
+int key[] = {1, 2, 3, 4, 5};//加密字符密钥
 
 //异或加密
 void xor_go(char *pstr, int *pkey) {
