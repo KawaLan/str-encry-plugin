@@ -93,4 +93,4 @@ java版：
 ```
 如需自定义加密方法，请修改NativeStringGuard这个文件
 
-修改class文件代码是参考了四哥的 http://www.520monkey.com/archives/1313  此插件的目的是为了更方便的加密字符串
+修改class文件代码是参考使用了四哥的 ，出处来源：http://www.520monkey.com/archives/1313  此插件的目的是为了更方便的加密字符串
