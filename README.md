@@ -22,7 +22,7 @@ classpath 'com.kawa.plugin:str-encry-plugin:1.0.0'
 apply plugin: 'StringEncry'
 
 stringEncry {
-    //加密密钥，默认[1,2,3,4,5]
+    //加密密钥，默认[1,2,3,4,5] 项目里面默认的是异或加密
     decryptKey = [1,2,3,4,5]
     //需要加密指定目录
     stringEncryDirList = [
@@ -92,3 +92,5 @@ java版：
     }
 ```
 如需自定义加密方法，请修改NativeStringGuard这个文件
+
+修改class文件代码是参考了四哥的 http://www.520monkey.com/archives/1313  此插件的目的是为了更方便的加密字符串
