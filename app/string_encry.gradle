@@ -2,7 +2,7 @@ apply plugin: 'StringEncry'
 
 stringEncry {
     //加密密钥，默认[1,2,3,4,5]
-    decryptKey = [1,2,6,4,5]
+    decryptKey = [1,2,3,4,5]
     //需要加密指定目录
     stringEncryDirList = [
             "com/kawa/strencrydemo/url"
